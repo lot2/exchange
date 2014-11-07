@@ -1,0 +1,14 @@
+from django.conf.urls import patterns, include, url
+from django.contrib import admin
+from online import views
+
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'mysite5.views.home', name='home'),
+
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^online/', include('online.urls')),
+    url(r'^', views.login, name = 'login'),
+)
