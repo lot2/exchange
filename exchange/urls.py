@@ -10,5 +10,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^online/', include('online.urls')),
-    url(r'^', views.login, name = 'login'),
+    # url(r'^', views.login, name = 'login'),
 )

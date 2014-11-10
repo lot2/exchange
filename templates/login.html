@@ -19,18 +19,17 @@
 <!-- Content -->
 <div id="content" class="colM">
 <div id="content-main">
-<form action="/admin/login/?next=/admin/" method="post" id="login-form"><input type='hidden' name='csrfmiddlewaretoken' value='cYy4Vha12lHY3xBrOV9FI0uRcZYrrns4' />
-  <div class="form-row">
-    <label for="id_username" class="required">Username:</label> <input id="id_username" maxlength="254" name="username" type="text" />
-  </div>
-  <div class="form-row">
-    <label for="id_password" class="required">Password:</label> <input id="id_password" name="password" type="password" />
-    <input type="hidden" name="next" value="/admin/" />
-  </div>
-  <div class="submit-row">
-    <input type="submit" value="Log in" />&nbsp;<input type="submit" value="Register" />
-  </div>
-</form>
+    <form method="post" id="login-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in uf %}
+            <div class="form-row">
+                {{ field.label }}{{ field }}
+            </div>
+        {% endfor %}
+        <div class="submit-row">
+            <input type="submit" value="登录"/>&nbsp;<input type="button" value="注册"/>
+        </div>
+    </form>
 <script type="text/javascript">
 document.getElementById('id_username').focus()
 </script>
